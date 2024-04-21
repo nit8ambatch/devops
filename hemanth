@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('stage-1') {
+            steps {
+                sh 'touch file2'
+                echo '"hai all this is my file2" > file2'
+                sh 'mv file2 file3'
+            }
+        }
+    }
+}
+
+
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('stage-1') {
+            steps {
+                sh 'lscpu'
+                sh 'lsmem'
+                sh 'cat /etc/passwd'            }
+        }
+    }
+}
+
+PIPELIEN AS A CODE AS A SINGLE LINE:
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('stage-1') {
+            steps {
+                sh '''
+                lscpu
+                lsmem
+                cat /etc/passwd
+                '''
+                
+            }
+        }
+    }
+}
